@@ -10,12 +10,10 @@ import {
   TextInput,
   TouchableOpacity
 } from 'react-native';
+import { API_URL, BASE_URL as CONFIG_BASE_URL } from '../src/config';
 
-// Detectar la IP local del backend según el entorno
-const BASE_URL =
-  Platform.OS === 'android'
-    ? 'http://10.0.2.2:4000'
-    : 'http://127.0.0.1:4000';
+// Usar la URL del backend desplegado (configurable en src/config.js)
+const BASE_URL = API_URL || CONFIG_BASE_URL;
 
 export default function HomeScreen({ navigation, route }) {
   const [search, setSearch] = useState('');

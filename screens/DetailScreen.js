@@ -14,12 +14,10 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+import { API_URL, BASE_URL as CONFIG_BASE_URL } from '../src/config';
 
-const BASE_URL = Platform.OS === 'android' 
-  ? 'http://10.0.2.2:4000' 
-  : window.location.hostname === 'localhost' 
-    ? 'http://localhost:4000'
-    : 'http://127.0.0.1:4000';
+// Usar la URL del backend desplegado (configurable en src/config.js)
+const BASE_URL = API_URL || CONFIG_BASE_URL;
 
 export default function DetailScreen({ route, navigation }) {
   const { cazador } = route.params;
